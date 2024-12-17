@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 3.10.0)
+project(TBAS VERSION 0.0.1 LANGUAGES CXX)
+message("Project version: " ${CMAKE_PROJECT_VERSION})
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(PROJECT_ROOT_DIR ${CMAKE_SOURCE_DIR})
+
+if(UNIX AND NOT APPLE)
+  set(OS_TYPE "LINUX")
+else()
+  if (MSVC OR MSYS OR MINGW)
+    set(OS_TYPE "WINDOWS")
+    set(CMAKE_MFC_FLAG 1)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    set(CMAKE_FIND_LIBRARY_SUFFIXES ".lib")
+  else()
+    set(OS_TYPE "UNKNOWN")
+  endif()
+endif ()
+
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Gui Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets)
+
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOMOC ON)
+
+if (CMAKE_BUILD_TYPE STREQUAL "Release")
+  message("Release build")
+  add_compile_definitions(QT_NO_DEBUG_OUTPUT)
+else()
+  message("Debug build")
+endif()
+
+add_subdirectory(sources)   

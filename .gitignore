@@ -1,0 +1,5 @@
+build
+.vscode
+*.autosave
+CMakeLists.txt.user
+data
