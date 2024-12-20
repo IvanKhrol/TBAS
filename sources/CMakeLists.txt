@@ -31,10 +31,12 @@ set(RESOURCES
 
 set(UI_HEADERS
   ${PROJECT_ROOT_DIR}/sources/${PROJECT_NAME}MainWindow/${PROJECT_NAME}MainWindow.ui
+  ${PROJECT_ROOT_DIR}/sources/${PROJECT_NAME}AuthorizationWidget/${PROJECT_NAME}AuthorizationWidget.ui
 )
 
 set(HEADERS
   ${PROJECT_ROOT_DIR}/sources/${PROJECT_NAME}MainWindow/${PROJECT_NAME}MainWindow.hpp
+  ${PROJECT_ROOT_DIR}/sources/${PROJECT_NAME}AuthorizationWidget/${PROJECT_NAME}AuthorizationWidget.hpp
 
   ${PROJECT_ROOT_DIR}/sources/externals/ErrorMessageBox.hpp
 )
@@ -42,6 +44,7 @@ set(HEADERS
 set (SOURCES
   ${PROJECT_ROOT_DIR}/sources/${PROJECT_NAME}Main.cpp
   ${PROJECT_ROOT_DIR}/sources/${PROJECT_NAME}MainWindow/${PROJECT_NAME}MainWindow.cpp
+  ${PROJECT_ROOT_DIR}/sources/${PROJECT_NAME}AuthorizationWidget/${PROJECT_NAME}AuthorizationWidget.cpp
 )
 
 message("Qt version is: " ${QT_VERSION})

@@ -2,8 +2,13 @@
 #define TBAS_MAINWINDOW_HPP
 
 #include <QMainWindow>
+#include <QHBoxLayout>
+#include <QCheckBox>
 #include <QLabel>
+
 #include <QDebug>
+
+#include "TBASAuthorizationWidget/TBASAuthorizationWidget.hpp"
 
 #if defined(Q_OS_WIN)
   #include <Windows.h>
@@ -36,6 +41,8 @@ public:
 
 private:
   QScopedPointer<Ui::MainWindow> ui;
+  QScopedPointer<TBASAuthorizationWidget> authorizationWidget;
+  QCheckBox *activateCheckBox;
   
   #if defined(Q_OS_WIN)
     void UpPrivilege();
